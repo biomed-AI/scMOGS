@@ -1,4 +1,4 @@
-![](Figures/Pipeline1.png)
+![](Figures/Pipeline.png)
 
 # scMOGS: a cross-modality attention heterogeneous graph neural network integrating single-cell multi-omics data for elucidating cell-disease association 
 scMOGS is a model that integrates single-cell multi-omics data with GWAS summary statistics for evaluating variant impact on cells and disease-cell associations.
