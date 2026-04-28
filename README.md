@@ -75,6 +75,7 @@ python compute_score.py \
   --output_file <path_to_output_directory> \
   --species human \
   --homologs_path <path_to_homologs_path> \
+~~~
 * `--input_file`: Path to the input dataset directory.
 * `--embedding_file`: Path to the directory where the embeddings is saved.
 * `--output_file`: Path to the directory where the score matrix will be saved.
