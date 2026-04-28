@@ -51,7 +51,7 @@ python train_model.py \
   --epochs_p2 50 \
   --device 0 \
   --input_file <path_to_your_input_directory> \
-  --output_file <path_to_output_directory>
+  --output_file <path_to_output_directory_of_embedding>
 ~~~
 * `--lr`: Learning rate.
 * `--labsm`: The rate of LabelSmoothing.
@@ -71,8 +71,8 @@ The compute_score.py script calculates the cell-gene interaction score using the
 ~~~shell
 python compute_score.py \
   --input_file <path_to_your_input_directory> \
-  --embedding_file <path_to_output_directory of train_model.py> \
-  --output_file <path_to_output_directory> \
+  --embedding_file <path_to_output_directory_of_embedding> \
+  --output_file <path_to_output_directory_of_score_matrix> \
   --species human \
   --homologs_path <path_to_homologs_path> \
 ~~~
@@ -83,5 +83,32 @@ python compute_score.py \
 * `--homologs_path`: Path to the a homologous transformation file for converting the gene names. Default: ./scMOGS/mouse_human_homologs.txt
 
 ## Disease enrichment
-To evaluate the association between cells and diseases, we employ the Spatial-LDSC method implemented in gsMap.
+To evaluate the association between cells and diseases, we employ the S-LDSC method implemented in gsMap.
 Please ensure you have installed gsMap and downloaded the required genome references (e.g., 1000 Genomes reference panel) and your GWAS summary statistics. For detailed installation and preparation instructions, please refer to the [gsMap Official Documentation](https://yanglab.westlake.edu.cn/gsmap/document/software).
+
+Generate ldscore
+~~~shell
+for CHROM in {1..22}
+do
+    gsmap run_generate_ldscore \
+        --workdir <path_to_output_directory_of_score_matrix> \
+        --sample_name <sample_name> \
+        --chrom $CHROM \
+        --bfile_root 'gsMap_resource/LD_Reference_Panel/1000G_EUR_Phase3_plink/1000G.EUR.QC' \
+        --keep_snp_root 'gsMap_resource/LDSC_resource/hapmap3_snps/hm' \
+        --gtf_annotation_file 'gsMap_resource/genome_annotation/gtf/gencode.v46lift37.basic.annotation.gtf' \
+        --gene_window_size 50000
+done
+~~~
+
+S-LDSC
+~~~shell
+gsmap run_spatial_ldsc \
+    --workdir <path_to_output_directory_of_score_matrix> \
+    --sample_name <sample_name> \
+    --trait_name <disease_name> \
+    --sumstats_file 'gsMap_example_data/GWAS/IQ_NG_2018.sumstats.gz' \
+    --w_file 'gsMap_resource/LDSC_resource/weights_hm3_no_hla/weights.' \
+    --num_processes 4
+~~~
+
