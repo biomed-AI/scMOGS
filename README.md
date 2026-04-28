@@ -81,3 +81,7 @@ python compute_score.py \
 * `--output_file`: Path to the directory where the score matrix will be saved.
 * `--species`: human or mouse.
 * `--homologs_path`: Path to the a homologous transformation file for converting the gene names. Default: ./scMOGS/mouse_human_homologs.txt
+
+## Disease enrichment
+To evaluate the association between cells and diseases, we employ the Spatial-LDSC method implemented in gsMap.
+Please ensure you have installed gsMap and downloaded the required genome references (e.g., 1000 Genomes reference panel) and your GWAS summary statistics. For detailed installation and preparation instructions, please refer to the [gsMap Official Documentation](https://yanglab.westlake.edu.cn/gsmap/document/software).
