@@ -16,7 +16,7 @@ and then run the following code to install the required package:
 
 ~~~shell
 cd scMOGS-master
-pip install --editable ./
+pip install -r requirements.txt
 ~~~
 
 ### Requirements
