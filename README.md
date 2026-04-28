@@ -35,6 +35,7 @@ pip install -r requirements.txt
 - `torch_sparse==0.6.18`
 - `torch_scatter==2.1.2`
 - `leidenalg==0.10.2`
+- `pyarrow==17.0.0`
 
 ## Data preparation
 * `Gene_Cell.mtx`: scRNA-seq count matrix. Stored in a sparse matrix format, detailing the gene expression levels across cells (Rows: Genes, Columns: Cells).
@@ -56,6 +57,7 @@ python train_model.py \
   --nlayers 3 \
   --n_hid 128 \
   --nheads 8 \
+  --neighbor 20 \
   --cell_size 50 \
   --epochs_p1 100 \
   --epochs_p2 50 \
@@ -69,6 +71,7 @@ python train_model.py \
 * `--nlayers`: The number of graph convolution layers.
 * `--n_hid`: The dimensionality of embeddings.
 * `--nheads`: The number of parallel attention heads within the multi-head attention module.
+* `--neighbor`: The number of neighboring nodes to be selected for each cell in the subgraph.
 * `--cell_size`: The number of cells per subgraph (batch).
 * `--epochs_p1`: The epoch number of MultimodalFeatureEncoder.
 * `--epochs_p2`: The epoch number of IntegratedOmicTrainer.
@@ -84,7 +87,7 @@ python compute_score.py \
   --embedding_file <path_to_output_directory_of_embedding> \
   --output_file <path_to_output_directory_of_score_matrix> \
   --species human \
-  --homologs_path <path_to_homologs_path> \
+  --homologs_path <path_to_homologs_path>
 ~~~
 * `--input_file`: Path to the input dataset directory.
 * `--embedding_file`: Path to the directory where the embeddings is saved.
