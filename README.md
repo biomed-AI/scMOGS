@@ -47,8 +47,8 @@ python train_model.py \
   --n_hid 128 \
   --nheads 8 \
   --cell_size 50 \
-  --epochs_p1 10 \
-  --epochs_p2 5 \
+  --epochs_p1 100 \
+  --epochs_p2 50 \
   --device 0 \
   --input_file <path_to_your_input_directory> \
   --output_file <path_to_output_directory>
