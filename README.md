@@ -36,10 +36,10 @@ pip install -r requirements.txt
 - `torch_scatter==2.1.2`
 - `leidenalg==0.10.2`
 
-## Data preparing
+## Data preparation
 * `Gene_Cell.mtx`: scRNA-seq count matrix. Stored in a sparse matrix format, detailing the gene expression levels across cells (Rows: Genes, Columns: Cells).
 * `Peak_Cell.mtx`: scATAC-seq count matrix. Stored in a sparse matrix format, representing the signal intensity or raw counts of each chromatin accessibility region (Peak) across individual cells (Rows: Peaks, Columns: Cells).
-* `Gene_Peak.mtx`: Gene-Peak association matrix. Describes the structural prior relationships between genes and peaks.
+* `Gene_Peak.mtx`: Gene-Peak association matrix. Describes the structural prior relationships between genes and peaks. Please refer to the process in scMOGS/Gene_Peak_Calculation.R
 * `Cell_names.tsv`: Cell name list.
 * `Gene_names.tsv`: Gene name list.
 * `Peak_names.tsv`: Peak name list.
