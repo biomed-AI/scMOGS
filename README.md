@@ -37,7 +37,7 @@ pip install -r requirements.txt
 - `leidenalg==0.10.2`
 
 ## HGNN training
-
+The train_model.py script is the core of the pipeline, training a Heterogeneous Graph Neural Network (HGNN) to integrate single-cell multi-omics data and otuput embedding for cell, gene and peak.
 ~~~shell
 python train_model.py \
   --lr 0.0005 \
@@ -50,9 +50,7 @@ python train_model.py \
   --epochs_p1 10 \
   --epochs_p2 5 \
   --device 0 \
-  --input_file <path_to_your_input_data> \
+  --input_file <path_to_your_input_directory> \
   --output_file <path_to_output_directory>
 ~~~
 
-* `--input_file`: Path to the input dataset directory.
-* `--output_file`: Path to the directory where the trained model embeddings will be saved.
