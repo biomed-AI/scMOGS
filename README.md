@@ -121,7 +121,7 @@ gsmap run_spatial_ldsc \
     --workdir <path_to_output_directory_of_score_matrix> \
     --sample_name <sample_name> \
     --trait_name <disease_name> \
-    --sumstats_file 'gsMap_example_data/GWAS/IQ_NG_2018.sumstats.gz' \
+    --sumstats_file <path_to_GWAS_sumstats.gz> \
     --w_file 'gsMap_resource/LDSC_resource/weights_hm3_no_hla/weights.' \
     --num_processes 4
 ~~~
