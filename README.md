@@ -35,3 +35,11 @@ pip install -r requirements.txt
 - `torch_sparse==0.6.18`
 - `torch_scatter==2.1.2`
 - `leidenalg==0.10.2`
+
+## HGNN training
+
+~~~shell
+python train_model.py --lr 0.0005 --labsm 0.1 --wd 0.1 --nlayers 3 --n_hid 128 --nheads 8 --cell_size 50 --epochs_p1 10 --epochs_p2 5 --device 2 --input_file /bigdat2/user/linsy/bigdat1/linsy/sc_GWAS/data/simulation_dataset/250_250_500_PBMCs_HD2_GCST90011770_buildGRCh37_glaucoma_beta50_GeneCards200_500top25genes_addPeak --output_file /bigdat2/user/linsy/bigdat1/linsy/sc_GWAS/code/upload/scMOGS/Data_2
+
+python train_model.py --lr 0.0005 --labsm 0.1 --wd 0.1 --nlayers 3 --n_hid 128 --nheads 8 --cell_size 50 --epochs_p1 10 --epochs_p2 5 --device 2 --input_file <path_to_your_input_directory> --output_file <path_to_output_directory>
+~~~
