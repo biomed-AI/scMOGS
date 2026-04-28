@@ -20,5 +20,18 @@ pip install --editable ./
 ~~~
 
 ### Requirements
-- `PyTorch version >= 1.5.0`
-- `Python version >= 3.6`
+- `numpy==1.22.3`
+- `pandas==1.5.3`
+- `anndata==0.8.0`
+- `matplotlib==3.5.1`
+- `scipy==1.9.1`
+- `seaborn==0.11.2`
+- `scikit-learn==1.1.2`
+- `torch==2.4.1`
+- `torch-geometric==2.1.0.post1`
+- `torchmetrics==0.9.3`
+- `tqdm==4.64.0`
+- `scanpy==1.9.1`
+- `torch_sparse==0.6.18`
+- `torch_scatter==2.1.2`
+- `leidenalg==0.10.2`
