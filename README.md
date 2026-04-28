@@ -37,7 +37,7 @@ pip install -r requirements.txt
 - `leidenalg==0.10.2`
 
 ## HGNN training
-The train_model.py script is the core of the pipeline, training a Heterogeneous Graph Neural Network (HGNN) to integrate single-cell multi-omics data and output embedding for cell, gene and peak.
+The train_model.py script train a Heterogeneous Graph Neural Network (HGNN) to integrate single-cell multi-omics data and output embedding for cell, gene and peak.
 ~~~shell
 python train_model.py \
   --lr 0.0005 \
@@ -64,4 +64,19 @@ python train_model.py \
 * `--epochs_p2`: The epoch number of IntegratedOmicTrainer.
 * `--device`: GPU device ID to use.
 * `--input_file`: Path to the input dataset directory.
-* `--output_file`: Path to the directory where the trained model embeddings will be saved.
+* `--output_file`: Path to the directory where the embeddings will be saved.
+
+## CGS calculating
+The compute_score.py script calculates the cell-gene interaction score using the embedding of cells, genes and peaks.
+~~~shell
+python compute_score.py \
+  --input_file <path_to_your_input_directory> \
+  --embedding_file <path_to_output_directory of train_model.py> \
+  --output_file <path_to_output_directory> \
+  --species human \
+  --homologs_path <path_to_homologs_path> \
+* `--input_file`: Path to the input dataset directory.
+* `--embedding_file`: Path to the directory where the embeddings is saved.
+* `--output_file`: Path to the directory where the score matrix will be saved.
+* `--species`: human or mouse.
+* `--homologs_path`: Path to the a homologous transformation file for converting the gene names. Default: ./scMOGS/mouse_human_homologs.txt
