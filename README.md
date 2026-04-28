@@ -84,9 +84,10 @@ python compute_score.py \
 
 ## Disease enrichment
 To evaluate the association between cells and diseases, we employ the S-LDSC method implemented in gsMap.
+
 Please ensure you have installed gsMap and downloaded the required genome references (e.g., 1000 Genomes reference panel) and your GWAS summary statistics. For detailed installation and preparation instructions, please refer to the [gsMap Official Documentation](https://yanglab.westlake.edu.cn/gsmap/document/software).
 
-Generate ldscore
+### Generate ldscore
 ~~~shell
 for CHROM in {1..22}
 do
@@ -101,7 +102,7 @@ do
 done
 ~~~
 
-S-LDSC
+### S-LDSC
 ~~~shell
 gsmap run_spatial_ldsc \
     --workdir <path_to_output_directory_of_score_matrix> \
